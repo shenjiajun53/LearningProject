@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="currentBean"
+            type="com.example.jory.learningproject.model.CurrentWeatherBean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/content_weather"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.jory.learningproject.WeatherActivity"
+        tools:showIn="@layout/activity_weather">
+
+        <TextView
+            android:id="@+id/text_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:fontFamily="sans-serif"
+            android:singleLine="true"
+            android:text="@{currentBean.observation.metric.temp}"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/weather_temp_size" />
+
+        <include
+            layout="@layout/weather_info_layout"
+            app:currentBean="@{currentBean}" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/weather_24forecast_card"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_hourly"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/weather_7forecast_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/content_margin"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <LinearLayout
+                android:id="@+id/ll_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</layout>

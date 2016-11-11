@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    private String[] viewNames = {"线程锁",  "to be continue"};
+    private String[] viewNames = {"线程锁", "DataBinding", "to be continue"};
     MyAdapter myAdapter;
 
     @Override
@@ -86,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
                     switch (position) {
                         case 0:
                             intent = new Intent(MainActivity.this, SynchronizedThreadActivity.class);
+                            startActivity(intent);
+                            break;
+                        case 1:
+                            intent = new Intent(MainActivity.this, WeatherActivity.class);
                             startActivity(intent);
                             break;
                         default:
