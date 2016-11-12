@@ -24,21 +24,10 @@
         tools:context="com.example.jory.learningproject.WeatherActivity"
         tools:showIn="@layout/activity_weather">
 
-        <TextView
-            android:id="@+id/text_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="bottom"
-            android:fontFamily="sans-serif"
-            android:singleLine="true"
-            android:text="@{currentBean.observation.metric.temp}"
-            android:textColor="@color/text_color_black"
-            android:textSize="@dimen/weather_temp_size" />
 
         <include
             layout="@layout/weather_info_layout"
-            app:currentBean="@{currentBean}" />
+            bind:currentBean="@{currentBean}" />
 
         <android.support.v7.widget.CardView
             android:id="@+id/weather_24forecast_card"

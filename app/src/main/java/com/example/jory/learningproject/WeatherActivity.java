@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.jory.learningproject.databinding.ActivityWeatherBinding;
 import com.example.jory.learningproject.databinding.ContentWeatherBinding;
 import com.example.jory.learningproject.model.CityListBean;
 import com.example.jory.learningproject.model.CurrentWeatherBean;
@@ -32,22 +34,27 @@ public class WeatherActivity extends AppCompatActivity {
     private Gson gson = new Gson();
     private CityListBean cityListBean;
     private CityListBean.AddressesBean cityBean;
-    private CurrentWeatherBean currentWeatherBean = new CurrentWeatherBean();
+    private CurrentWeatherBean currentWeatherBean;
 
     private TextView currentTempTv;
     private LinearLayout contentLayout;
+    ContentWeatherBinding contentWeatherBinding;
+    ActivityWeatherBinding activityWeatherBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_weather);
+        activityWeatherBinding = DataBindingUtil.setContentView(this, R.layout.activity_weather);
+//        activityWeatherBinding.setCurrentBean(currentWeatherBean);
+//        setContentView(R.layout.activity_weather);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ViewGroup rootView = (ViewGroup) findViewById(R.id.root_view);
         contentLayout = (LinearLayout) findViewById(R.id.content_weather);
-        ContentWeatherBinding contentWeatherBinding = ContentWeatherBinding.bind(contentLayout);
-        contentWeatherBinding.setCurrentBean(currentWeatherBean);
+        contentWeatherBinding = DataBindingUtil.bind(contentLayout);
+//        contentWeatherBinding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.content_weather, null, false);
+//        contentWeatherBinding.getCurrentBean().notifyChange();
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -97,6 +104,14 @@ public class WeatherActivity extends AppCompatActivity {
                         currentWeatherBean = gson.fromJson(s, CurrentWeatherBean.class);
                         String temp = currentWeatherBean.getObservation().getMetric().getTemp() + "";
                         Log.e(TAG, "temp=" + temp);
+                        currentWeatherBean.setTempString(currentWeatherBean.getTempString() + "fds");
+                        Log.e(TAG, "tempString=" + currentWeatherBean.getTempString());
+//                        contentWeatherBinding.getCurrentBean().notifyChange();
+                        activityWeatherBinding.setCurrentBean(currentWeatherBean);
+                        activityWeatherBinding.getCurrentBean().notifyChange();
+
+                        contentWeatherBinding.setCurrentBean(currentWeatherBean);
+                        contentWeatherBinding.getCurrentBean().notifyChange();
 
 //                        currentTempTv.setText(temp);
                     }

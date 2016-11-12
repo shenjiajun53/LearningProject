@@ -1,38 +1,57 @@
 package com.example.jory.learningproject.model;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by shenjj on 2016/11/11.
  */
 
-public class CurrentWeatherBean {
+public class CurrentWeatherBean extends BaseObservable {
 
     /**
-     * metadata : {"language":"zh-CN","transaction_id":"1478852306614:-994620159","version":"1","latitude":31.56,"longitude":31.56,"units":"m","expire_time_gmt":1478852906,"status_code":200}
-     * observation : {"class":"observation","expire_time_gmt":1478852906,"obs_time":1478852306,"obs_time_local":"2016-11-11T10:18:26+0200","wdir":10,"icon_code":30,"icon_extd":3000,"sunrise":"2016-11-11T06:18:09+0200","sunset":"2016-11-11T16:56:56+0200","day_ind":"D","uv_index":4,"uv_warning":0,"wxman":"wx1100","obs_qualifier_code":null,"ptend_code":1,"dow":"星期五","wdir_cardinal":"北風","uv_desc":"中等","phrase_12char":null,"phrase_22char":null,"phrase_32char":"局部多雲","ptend_desc":"升温","sky_cover":"局部多雲","clds":"SCT","obs_qualifier_severity":null,"vocal_key":"OT73:OX3000","metric":{"wspd":11,"gust":null,"vis":14.48,"mslp":1022.1,"altimeter":1022.01,"temp":23,"dewpt":14,"rh":59,"wc":23,"hi":23,"temp_change_24hour":-19,"temp_max_24hour":25,"temp_min_24hour":21,"pchange":0.68,"feels_like":23,"snow_1hour":0,"snow_6hour":0,"snow_24hour":0,"snow_mtd":null,"snow_season":null,"snow_ytd":null,"snow_2day":null,"snow_3day":null,"snow_7day":null,"ceiling":null,"precip_1hour":0,"precip_6hour":0,"precip_24hour":0,"precip_mtd":null,"precip_ytd":null,"precip_2day":null,"precip_3day":null,"precip_7day":null,"obs_qualifier_100char":null,"obs_qualifier_50char":null,"obs_qualifier_32char":null}}
+      metadata : {"language":"zh-CN","transaction_id":"1478852306614:-994620159","version":"1","latitude":31.56,"longitude":31.56,"units":"m","expire_time_gmt":1478852906,"status_code":200}
+      observation : {"class":"observation","expire_time_gmt":1478852906,"obs_time":1478852306,"obs_time_local":"2016-11-11T10:18:26+0200","wdir":10,"icon_code":30,"icon_extd":3000,"sunrise":"2016-11-11T06:18:09+0200","sunset":"2016-11-11T16:56:56+0200","day_ind":"D","uv_index":4,"uv_warning":0,"wxman":"wx1100","obs_qualifier_code":null,"ptend_code":1,"dow":"星期五","wdir_cardinal":"北風","uv_desc":"中等","phrase_12char":null,"phrase_22char":null,"phrase_32char":"局部多雲","ptend_desc":"升温","sky_cover":"局部多雲","clds":"SCT","obs_qualifier_severity":null,"vocal_key":"OT73:OX3000",
+      "metric":{"wspd":11,"gust":null,"vis":14.48,"mslp":1022.1,"altimeter":1022.01,"temp":23,"dewpt":14,"rh":59,"wc":23,"hi":23,"temp_change_24hour":-19,"temp_max_24hour":25,"temp_min_24hour":21,"pchange":0.68,"feels_like":23,"snow_1hour":0,"snow_6hour":0,"snow_24hour":0,"snow_mtd":null,"snow_season":null,"snow_ytd":null,"snow_2day":null,"snow_3day":null,"snow_7day":null,"ceiling":null,"precip_1hour":0,"precip_6hour":0,"precip_24hour":0,"precip_mtd":null,"precip_ytd":null,"precip_2day":null,"precip_3day":null,"precip_7day":null,"obs_qualifier_100char":null,"obs_qualifier_50char":null,"obs_qualifier_32char":null}}
      */
+    private String tempString = "ad";
 
     private MetadataBean metadata;
     private ObservationBean observation;
 
+    @Bindable
+    public String getTempString() {
+        return tempString;
+    }
+
+    public void setTempString(String tempString) {
+        this.tempString = tempString;
+//        notifyPropertyChanged(BR.tempString);
+    }
+
+    @Bindable
     public MetadataBean getMetadata() {
         return metadata;
     }
 
     public void setMetadata(MetadataBean metadata) {
         this.metadata = metadata;
+//        notifyPropertyChanged(BR.metadata);
     }
 
+    @Bindable
     public ObservationBean getObservation() {
         return observation;
     }
 
     public void setObservation(ObservationBean observation) {
         this.observation = observation;
+//        notifyPropertyChanged(BR.observation);
     }
 
-    public static class MetadataBean {
+    public static class MetadataBean extends BaseObservable {
         /**
          * language : zh-CN
          * transaction_id : 1478852306614:-994620159
@@ -53,6 +72,7 @@ public class CurrentWeatherBean {
         private int expire_time_gmt;
         private int status_code;
 
+        @Bindable
         public String getLanguage() {
             return language;
         }
@@ -61,6 +81,7 @@ public class CurrentWeatherBean {
             this.language = language;
         }
 
+        @Bindable
         public String getTransaction_id() {
             return transaction_id;
         }
@@ -69,6 +90,7 @@ public class CurrentWeatherBean {
             this.transaction_id = transaction_id;
         }
 
+        @Bindable
         public String getVersion() {
             return version;
         }
@@ -77,6 +99,7 @@ public class CurrentWeatherBean {
             this.version = version;
         }
 
+        @Bindable
         public double getLatitude() {
             return latitude;
         }
@@ -85,6 +108,7 @@ public class CurrentWeatherBean {
             this.latitude = latitude;
         }
 
+        @Bindable
         public double getLongitude() {
             return longitude;
         }
@@ -93,6 +117,7 @@ public class CurrentWeatherBean {
             this.longitude = longitude;
         }
 
+        @Bindable
         public String getUnits() {
             return units;
         }
@@ -101,6 +126,7 @@ public class CurrentWeatherBean {
             this.units = units;
         }
 
+        @Bindable
         public int getExpire_time_gmt() {
             return expire_time_gmt;
         }
@@ -109,6 +135,7 @@ public class CurrentWeatherBean {
             this.expire_time_gmt = expire_time_gmt;
         }
 
+        @Bindable
         public int getStatus_code() {
             return status_code;
         }
@@ -118,7 +145,7 @@ public class CurrentWeatherBean {
         }
     }
 
-    public static class ObservationBean {
+    public static class ObservationBean extends BaseObservable {
         /**
          * class : observation
          * expire_time_gmt : 1478852906
@@ -178,6 +205,7 @@ public class CurrentWeatherBean {
         private String vocal_key;
         private MetricBean metric;
 
+        @Bindable
         public String getClassX() {
             return classX;
         }
@@ -186,6 +214,7 @@ public class CurrentWeatherBean {
             this.classX = classX;
         }
 
+        @Bindable
         public int getExpire_time_gmt() {
             return expire_time_gmt;
         }
@@ -194,6 +223,7 @@ public class CurrentWeatherBean {
             this.expire_time_gmt = expire_time_gmt;
         }
 
+        @Bindable
         public int getObs_time() {
             return obs_time;
         }
@@ -202,6 +232,7 @@ public class CurrentWeatherBean {
             this.obs_time = obs_time;
         }
 
+        @Bindable
         public String getObs_time_local() {
             return obs_time_local;
         }
@@ -210,6 +241,7 @@ public class CurrentWeatherBean {
             this.obs_time_local = obs_time_local;
         }
 
+        @Bindable
         public int getWdir() {
             return wdir;
         }
@@ -218,6 +250,7 @@ public class CurrentWeatherBean {
             this.wdir = wdir;
         }
 
+        @Bindable
         public int getIcon_code() {
             return icon_code;
         }
@@ -226,6 +259,7 @@ public class CurrentWeatherBean {
             this.icon_code = icon_code;
         }
 
+        @Bindable
         public int getIcon_extd() {
             return icon_extd;
         }
@@ -234,6 +268,7 @@ public class CurrentWeatherBean {
             this.icon_extd = icon_extd;
         }
 
+        @Bindable
         public String getSunrise() {
             return sunrise;
         }
@@ -242,6 +277,7 @@ public class CurrentWeatherBean {
             this.sunrise = sunrise;
         }
 
+        @Bindable
         public String getSunset() {
             return sunset;
         }
@@ -250,6 +286,7 @@ public class CurrentWeatherBean {
             this.sunset = sunset;
         }
 
+        @Bindable
         public String getDay_ind() {
             return day_ind;
         }
@@ -258,6 +295,7 @@ public class CurrentWeatherBean {
             this.day_ind = day_ind;
         }
 
+        @Bindable
         public int getUv_index() {
             return uv_index;
         }
@@ -266,6 +304,7 @@ public class CurrentWeatherBean {
             this.uv_index = uv_index;
         }
 
+        @Bindable
         public int getUv_warning() {
             return uv_warning;
         }
@@ -274,6 +313,7 @@ public class CurrentWeatherBean {
             this.uv_warning = uv_warning;
         }
 
+        @Bindable
         public String getWxman() {
             return wxman;
         }
@@ -282,6 +322,7 @@ public class CurrentWeatherBean {
             this.wxman = wxman;
         }
 
+        @Bindable
         public Object getObs_qualifier_code() {
             return obs_qualifier_code;
         }
@@ -290,6 +331,7 @@ public class CurrentWeatherBean {
             this.obs_qualifier_code = obs_qualifier_code;
         }
 
+        @Bindable
         public int getPtend_code() {
             return ptend_code;
         }
@@ -298,6 +340,7 @@ public class CurrentWeatherBean {
             this.ptend_code = ptend_code;
         }
 
+        @Bindable
         public String getDow() {
             return dow;
         }
@@ -306,6 +349,7 @@ public class CurrentWeatherBean {
             this.dow = dow;
         }
 
+        @Bindable
         public String getWdir_cardinal() {
             return wdir_cardinal;
         }
@@ -314,6 +358,7 @@ public class CurrentWeatherBean {
             this.wdir_cardinal = wdir_cardinal;
         }
 
+        @Bindable
         public String getUv_desc() {
             return uv_desc;
         }
@@ -322,6 +367,7 @@ public class CurrentWeatherBean {
             this.uv_desc = uv_desc;
         }
 
+        @Bindable
         public Object getPhrase_12char() {
             return phrase_12char;
         }
@@ -330,6 +376,7 @@ public class CurrentWeatherBean {
             this.phrase_12char = phrase_12char;
         }
 
+        @Bindable
         public Object getPhrase_22char() {
             return phrase_22char;
         }
@@ -338,6 +385,7 @@ public class CurrentWeatherBean {
             this.phrase_22char = phrase_22char;
         }
 
+        @Bindable
         public String getPhrase_32char() {
             return phrase_32char;
         }
@@ -346,6 +394,7 @@ public class CurrentWeatherBean {
             this.phrase_32char = phrase_32char;
         }
 
+        @Bindable
         public String getPtend_desc() {
             return ptend_desc;
         }
@@ -354,6 +403,7 @@ public class CurrentWeatherBean {
             this.ptend_desc = ptend_desc;
         }
 
+        @Bindable
         public String getSky_cover() {
             return sky_cover;
         }
@@ -362,6 +412,7 @@ public class CurrentWeatherBean {
             this.sky_cover = sky_cover;
         }
 
+        @Bindable
         public String getClds() {
             return clds;
         }
@@ -370,6 +421,7 @@ public class CurrentWeatherBean {
             this.clds = clds;
         }
 
+        @Bindable
         public Object getObs_qualifier_severity() {
             return obs_qualifier_severity;
         }
@@ -378,6 +430,7 @@ public class CurrentWeatherBean {
             this.obs_qualifier_severity = obs_qualifier_severity;
         }
 
+        @Bindable
         public String getVocal_key() {
             return vocal_key;
         }
@@ -386,15 +439,17 @@ public class CurrentWeatherBean {
             this.vocal_key = vocal_key;
         }
 
+        @Bindable
         public MetricBean getMetric() {
             return metric;
         }
 
         public void setMetric(MetricBean metric) {
             this.metric = metric;
+//            notifyPropertyChanged(BR.metric);
         }
 
-        public static class MetricBean {
+        public static class MetricBean extends BaseObservable {
             /**
              * wspd : 11
              * gust : null
@@ -471,6 +526,7 @@ public class CurrentWeatherBean {
             private Object obs_qualifier_50char;
             private Object obs_qualifier_32char;
 
+            @Bindable
             public int getWspd() {
                 return wspd;
             }
@@ -479,6 +535,7 @@ public class CurrentWeatherBean {
                 this.wspd = wspd;
             }
 
+            @Bindable
             public Object getGust() {
                 return gust;
             }
@@ -487,6 +544,7 @@ public class CurrentWeatherBean {
                 this.gust = gust;
             }
 
+            @Bindable
             public double getVis() {
                 return vis;
             }
@@ -495,6 +553,7 @@ public class CurrentWeatherBean {
                 this.vis = vis;
             }
 
+            @Bindable
             public double getMslp() {
                 return mslp;
             }
@@ -503,6 +562,7 @@ public class CurrentWeatherBean {
                 this.mslp = mslp;
             }
 
+            @Bindable
             public double getAltimeter() {
                 return altimeter;
             }
@@ -511,18 +571,22 @@ public class CurrentWeatherBean {
                 this.altimeter = altimeter;
             }
 
+            @Bindable
             public int getTemp() {
                 return temp;
             }
 
             public void setTemp(int temp) {
                 this.temp = temp;
+//                notifyPropertyChanged(BR.temp);
             }
 
+            @Bindable
             public int getDewpt() {
                 return dewpt;
             }
 
+            @Bindable
             public void setDewpt(int dewpt) {
                 this.dewpt = dewpt;
             }
