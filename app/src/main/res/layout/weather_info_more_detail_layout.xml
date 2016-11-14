@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout>
 
-    <variable
-        name="currentBean"
-        type="com.example.jory.learningproject.model.CurrentWeatherBean" />
+    <data>
 
-    <LinearLayout
+        <variable
+            name="currentBean"
+            type="com.example.jory.learningproject.model.CurrentWeatherBean" />
+    </data>
 
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -46,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-light"
+                    android:text='@{currentBean.observation.metric.vis+""}'
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/weather_info_value_size" />
 
@@ -89,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-light"
+                    android:text='@{currentBean.observation.metric.wspd+""}'
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/weather_info_value_size" />
 
@@ -187,6 +190,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-light"
+                    android:text='@{currentBean.observation.metric.mslp+""}'
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/weather_info_value_size" />
 
@@ -230,6 +234,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-light"
+                    android:text='@{currentBean.observation.uv_index+""}'
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/weather_info_value_size" />
 
@@ -239,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif"
-                    android:text="@string/label_humidity_unit"
+                    android:text='@{currentBean.observation.uv_desc+""}'
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/weather_info_unit_size" />
             </LinearLayout>

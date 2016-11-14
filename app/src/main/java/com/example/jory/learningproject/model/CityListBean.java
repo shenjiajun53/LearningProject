@@ -1,12 +1,14 @@
 package com.example.jory.learningproject.model;
 
+import android.databinding.BaseObservable;
+
 import java.util.List;
 
 /**
  * Created by shenjj on 2016/11/11.
  */
 
-public class CityListBean {
+public class CityListBean extends BaseObservable{
 
     /**
      * metadata : {"version":"v2","transaction_id":"947e7990-b9c8-4f0d-be79-90b9c88f0de9","generated_time":1478851162,"total_cache_time_secs":86400,"status_code":200,"language":"en-US","address":"wuxi","format":"json"}
@@ -118,7 +120,7 @@ public class CityListBean {
         }
     }
 
-    public static class AddressesBean {
+    public static class AddressesBean extends BaseObservable{
         /**
          * locality : Wuxing District
          * address : Wuxing District, Huzhou, Zhejiang, China

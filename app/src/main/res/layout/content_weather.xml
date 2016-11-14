@@ -7,15 +7,18 @@
     <data>
 
         <variable
+            name="cityBean"
+            type="com.example.jory.learningproject.model.CityListBean.AddressesBean" />
+
+        <variable
             name="currentBean"
             type="com.example.jory.learningproject.model.CurrentWeatherBean" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:id="@+id/content_weather"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -24,36 +27,43 @@
         tools:context="com.example.jory.learningproject.WeatherActivity"
         tools:showIn="@layout/activity_weather">
 
-
-        <include
-            layout="@layout/weather_info_layout"
-            bind:currentBean="@{currentBean}" />
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/weather_24forecast_card"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_hourly"
+            <include
+                layout="@layout/weather_info_layout"
+                bind:cityBean="@{cityBean}"
+                bind:currentBean="@{currentBean}" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/weather_24forecast_card"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </android.support.v7.widget.CardView>
+                android:layout_height="100dp"
+                android:layout_marginTop="@dimen/content_margin"
+                android:foreground="?android:attr/selectableItemBackground">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/weather_7forecast_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/content_margin"
-            android:foreground="?android:attr/selectableItemBackground">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_hourly"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </android.support.v7.widget.CardView>
 
-            <LinearLayout
-                android:id="@+id/ll_day"
+            <android.support.v7.widget.CardView
+                android:id="@+id/weather_7forecast_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
-        </android.support.v7.widget.CardView>
+                android:layout_marginTop="@dimen/content_margin"
+                android:foreground="?android:attr/selectableItemBackground">
 
-    </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
 </layout>

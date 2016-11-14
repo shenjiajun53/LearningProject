@@ -11,9 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.jory.learningproject.databinding.ActivityWeatherBinding;
 import com.example.jory.learningproject.databinding.ContentWeatherBinding;
 import com.example.jory.learningproject.model.CityListBean;
 import com.example.jory.learningproject.model.CurrentWeatherBean;
@@ -37,21 +37,20 @@ public class WeatherActivity extends AppCompatActivity {
     private CurrentWeatherBean currentWeatherBean;
 
     private TextView currentTempTv;
-    private LinearLayout contentLayout;
+    private ScrollView contentLayout;
     ContentWeatherBinding contentWeatherBinding;
-    ActivityWeatherBinding activityWeatherBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityWeatherBinding = DataBindingUtil.setContentView(this, R.layout.activity_weather);
+//        activityWeatherBinding = DataBindingUtil.setContentView(this, R.layout.activity_weather);
 //        activityWeatherBinding.setCurrentBean(currentWeatherBean);
-//        setContentView(R.layout.activity_weather);
+        setContentView(R.layout.activity_weather);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ViewGroup rootView = (ViewGroup) findViewById(R.id.root_view);
-        contentLayout = (LinearLayout) findViewById(R.id.content_weather);
+        contentLayout = (ScrollView) findViewById(R.id.content_weather);
         contentWeatherBinding = DataBindingUtil.bind(contentLayout);
 //        contentWeatherBinding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.content_weather, null, false);
 //        contentWeatherBinding.getCurrentBean().notifyChange();
@@ -81,7 +80,9 @@ public class WeatherActivity extends AppCompatActivity {
                     public void onSuccess(String s, Call call, Response response) {
                         Logger.t(TAG).json(s);
                         cityListBean = gson.fromJson(s, CityListBean.class);
-                        cityBean = cityListBean.getAddresses().get(0);
+                        cityBean = cityListBean.getAddresses().get(1);
+                        contentWeatherBinding.setCityBean(cityBean);
+                        contentWeatherBinding.getCityBean().notifyChange();
                         getCurrentWeatherData();
                     }
 
@@ -107,8 +108,8 @@ public class WeatherActivity extends AppCompatActivity {
                         currentWeatherBean.setTempString(currentWeatherBean.getTempString() + "fds");
                         Log.e(TAG, "tempString=" + currentWeatherBean.getTempString());
 //                        contentWeatherBinding.getCurrentBean().notifyChange();
-                        activityWeatherBinding.setCurrentBean(currentWeatherBean);
-                        activityWeatherBinding.getCurrentBean().notifyChange();
+//                        activityWeatherBinding.setCurrentBean(currentWeatherBean);
+//                        activityWeatherBinding.getCurrentBean().notifyChange();
 
                         contentWeatherBinding.setCurrentBean(currentWeatherBean);
                         contentWeatherBinding.getCurrentBean().notifyChange();

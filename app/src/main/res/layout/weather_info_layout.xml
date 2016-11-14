@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="cityBean"
+            type="com.example.jory.learningproject.model.CityListBean.AddressesBean" />
+
+        <variable
             name="currentBean"
             type="com.example.jory.learningproject.model.CurrentWeatherBean" />
     </data>
@@ -88,6 +92,7 @@
                             android:fontFamily="sans-serif"
                             android:marqueeRepeatLimit="marquee_forever"
                             android:singleLine="true"
+                            android:text='@{cityBean.address}'
                             android:textColor="@color/text_color_black"
                             android:textSize="@dimen/weather_city_size" />
                     </LinearLayout>
@@ -127,13 +132,13 @@
                     android:layout_height="@dimen/content_margin" />
 
                 <include
-                    bind:currentBean="@{currentBean}"
-                    layout="@layout/weather_info_base_detail_layout" />
+                    layout="@layout/weather_info_base_detail_layout"
+                    bind:currentBean="@{currentBean}" />
 
 
                 <include
-                    bind:currentBean="@{currentBean}"
-                    layout="@layout/weather_info_more_detail_layout" />
+                    layout="@layout/weather_info_more_detail_layout"
+                    bind:currentBean="@{currentBean}" />
 
             </LinearLayout>
 
