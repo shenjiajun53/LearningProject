@@ -2,6 +2,7 @@ package com.example.jory.learningproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,13 +14,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.example.jory.learningproject.views.FullyLinearLayoutManager;
+import com.example.jory.learningproject.views.RecyclerScrollView;
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     private String[] viewNames = {"线程锁", "DataBinding", "to be continue"};
     MyAdapter myAdapter;
+//    private RecyclerScrollView mScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.main_recycler);
         myAdapter = new MyAdapter();
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
+        RecyclerView.LayoutManager layoutManager = new FullyLinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(myAdapter);
+//        recyclerView.setAdapter(myAdapter);
+
+//        mScrollView = (RecyclerScrollView) findViewById(R.id.my_scroller);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                recyclerView.setAdapter(myAdapter);
+            }
+        }, 300);
     }
 
     @Override
