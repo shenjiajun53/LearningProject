@@ -26,6 +26,10 @@
         <activity
             android:name=".WeatherActivity"
             android:label="@string/title_activity_weather"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BottomEditActivity"
+            android:label="@string/title_activity_bottom_edit"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

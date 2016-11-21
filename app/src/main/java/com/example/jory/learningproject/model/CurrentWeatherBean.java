@@ -2,6 +2,9 @@ package com.example.jory.learningproject.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.databinding.BindingAdapter;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -12,11 +15,11 @@ import com.google.gson.annotations.SerializedName;
 public class CurrentWeatherBean extends BaseObservable {
 
     /**
-      metadata : {"language":"zh-CN","transaction_id":"1478852306614:-994620159","version":"1","latitude":31.56,"longitude":31.56,"units":"m","expire_time_gmt":1478852906,"status_code":200}
-      observation : {"class":"observation","expire_time_gmt":1478852906,"obs_time":1478852306,"obs_time_local":"2016-11-11T10:18:26+0200","wdir":10,"icon_code":30,"icon_extd":3000,"sunrise":"2016-11-11T06:18:09+0200","sunset":"2016-11-11T16:56:56+0200","day_ind":"D","uv_index":4,"uv_warning":0,"wxman":"wx1100","obs_qualifier_code":null,"ptend_code":1,"dow":"星期五","wdir_cardinal":"北風","uv_desc":"中等","phrase_12char":null,"phrase_22char":null,"phrase_32char":"局部多雲","ptend_desc":"升温","sky_cover":"局部多雲","clds":"SCT","obs_qualifier_severity":null,"vocal_key":"OT73:OX3000",
-      "metric":{"wspd":11,"gust":null,"vis":14.48,"mslp":1022.1,"altimeter":1022.01,"temp":23,"dewpt":14,"rh":59 //humidity,"wc":23,"hi":23,"temp_change_24hour":-19,"temp_max_24hour":25,"temp_min_24hour":21,"pchange":0.68,"feels_like":23,"snow_1hour":0,"snow_6hour":0,"snow_24hour":0,"snow_mtd":null,"snow_season":null,"snow_ytd":null,"snow_2day":null,"snow_3day":null,"snow_7day":null,"ceiling":null,"precip_1hour":0,"precip_6hour":0,"precip_24hour":0,"precip_mtd":null,"precip_ytd":null,"precip_2day":null,"precip_3day":null,"precip_7day":null,"obs_qualifier_100char":null,"obs_qualifier_50char":null,"obs_qualifier_32char":null}}
+     * metadata : {"language":"zh-CN","transaction_id":"1478852306614:-994620159","version":"1","latitude":31.56,"longitude":31.56,"units":"m","expire_time_gmt":1478852906,"status_code":200}
+     * observation : {"class":"observation","expire_time_gmt":1478852906,"obs_time":1478852306,"obs_time_local":"2016-11-11T10:18:26+0200","wdir":10,"icon_code":30,"icon_extd":3000,"sunrise":"2016-11-11T06:18:09+0200","sunset":"2016-11-11T16:56:56+0200","day_ind":"D","uv_index":4,"uv_warning":0,"wxman":"wx1100","obs_qualifier_code":null,"ptend_code":1,"dow":"星期五","wdir_cardinal":"北風","uv_desc":"中等","phrase_12char":null,"phrase_22char":null,"phrase_32char":"局部多雲","ptend_desc":"升温","sky_cover":"局部多雲","clds":"SCT","obs_qualifier_severity":null,"vocal_key":"OT73:OX3000",
+     * "metric":{"wspd":11,"gust":null,"vis":14.48,"mslp":1022.1,"altimeter":1022.01,"temp":23,"dewpt":14,"rh":59 //humidity,"wc":23,"hi":23,"temp_change_24hour":-19,"temp_max_24hour":25,"temp_min_24hour":21,"pchange":0.68,"feels_like":23,"snow_1hour":0,"snow_6hour":0,"snow_24hour":0,"snow_mtd":null,"snow_season":null,"snow_ytd":null,"snow_2day":null,"snow_3day":null,"snow_7day":null,"ceiling":null,"precip_1hour":0,"precip_6hour":0,"precip_24hour":0,"precip_mtd":null,"precip_ytd":null,"precip_2day":null,"precip_3day":null,"precip_7day":null,"obs_qualifier_100char":null,"obs_qualifier_50char":null,"obs_qualifier_32char":null}}
      */
-    private String tempString = "ad";
+    private String tempString = "addd";
 
     private MetadataBean metadata;
     private ObservationBean observation;
@@ -50,6 +53,21 @@ public class CurrentWeatherBean extends BaseObservable {
         this.observation = observation;
 //        notifyPropertyChanged(BR.observation);
     }
+
+//    @BindingAdapter("bind:blabla")
+//    public static void setBlabla(TextView view, String blabla) {
+//        view.setText(blabla);
+//    }
+
+//    @BindingAdapter({"bind:blabla", "bind:bibi"})
+//    public static void setTail(TextView view, String blabla, String bibi) {
+//        view.setText(blabla + bibi);
+//    }
+
+//    @BindingAdapter("android:text")
+//    public static void setText(TextView view, String content) {
+//        view.setText(content+"balabala");
+//    }
 
     public static class MetadataBean extends BaseObservable {
         /**

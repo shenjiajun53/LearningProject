@@ -23,7 +23,7 @@ import com.example.jory.learningproject.views.RecyclerScrollView;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    private String[] viewNames = {"线程锁", "DataBinding", "to be continue"};
+    private String[] viewNames = {"线程锁", "DataBinding", "bottom edit", "to be continue"};
     MyAdapter myAdapter;
 //    private RecyclerScrollView mScrollView;
 
@@ -105,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case 1:
                             intent = new Intent(MainActivity.this, WeatherActivity.class);
+                            startActivity(intent);
+                            break;
+                        case 2:
+                            intent = new Intent(MainActivity.this, BottomEditActivity.class);
                             startActivity(intent);
                             break;
                         default:

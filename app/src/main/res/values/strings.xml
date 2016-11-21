@@ -5,7 +5,6 @@
     <string name="title_activity_weather">WeatherActivity</string>
 
 
-
     <string name="menu_addlocation">"Add location"</string>
     <string name="menu_delete">"Delete location"</string>
     <string name="menu_unit">"Change unit"</string>
@@ -48,8 +47,8 @@
         <item>Mostly cloudy</item>
         <item>Cloudy</item>
         <item>Dreary</item>
-        <item/>
-        <item/>
+        <item />
+        <item />
         <item>Fog</item>
         <item>Showers</item>
         <item>Mostly cloudy with showers</item>
@@ -66,8 +65,8 @@
         <item>Ice</item>
         <item>Sleet</item>
         <item>Freezing rain</item>
-        <item/>
-        <item/>
+        <item />
+        <item />
         <item>Rain and snow mixed</item>
         <item>Hot</item>
         <item>Cold</item>
@@ -100,7 +99,7 @@
     <string name="widget_12_hours_format" translatable="false">h:mm</string>
     <string name="widget_24_hours_format" translatable="false">kk:mm</string>
     <string name="am_pm_12_hours" translatable="false">aa</string>
-    <string name="am_pm_24_hours" translatable="false"/>
+    <string name="am_pm_24_hours" translatable="false" />
     <!-- CR746638 Change date&time display format by jielong.xing at 2014-07-27 begin -->
     <string name="weekday_keyguard" translatable="false">EEE,</string>
     <!-- CR746638 Change date&time display format by jielong.xing at 2014-07-27 end -->
@@ -221,4 +220,5 @@
     <string name="title_pref_feels_like">"Show sensible temperature"</string>
 
     <string name="just_updated">"just now"</string>
+    <string name="title_activity_bottom_edit">BottomEditActivity</string>
 </resources>
