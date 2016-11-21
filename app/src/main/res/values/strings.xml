@@ -221,4 +221,5 @@
 
     <string name="just_updated">"just now"</string>
     <string name="title_activity_bottom_edit">BottomEditActivity</string>
+    <string name="title_activity_jni">JniActivity</string>
 </resources>
