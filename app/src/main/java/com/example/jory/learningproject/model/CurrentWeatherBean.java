@@ -54,10 +54,10 @@ public class CurrentWeatherBean extends BaseObservable {
 //        notifyPropertyChanged(BR.observation);
     }
 
-//    @BindingAdapter("bind:blabla")
-//    public static void setBlabla(TextView view, String blabla) {
-//        view.setText(blabla);
-//    }
+    @BindingAdapter("blabla")
+    public static void setBlabla(TextView view, String originStr) {
+        view.setText(originStr + "blabla");
+    }
 
 //    @BindingAdapter({"bind:blabla", "bind:bibi"})
 //    public static void setTail(TextView view, String blabla, String bibi) {
