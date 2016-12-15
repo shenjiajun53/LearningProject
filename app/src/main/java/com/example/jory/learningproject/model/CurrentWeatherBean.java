@@ -534,7 +534,7 @@ public class CurrentWeatherBean extends BaseObservable {
             private Object ceiling;
             private int precip_1hour;
             private int precip_6hour;
-            private int precip_24hour;
+            private float precip_24hour;
             private Object precip_mtd;
             private Object precip_ytd;
             private Object precip_2day;
@@ -769,11 +769,11 @@ public class CurrentWeatherBean extends BaseObservable {
                 this.precip_6hour = precip_6hour;
             }
 
-            public int getPrecip_24hour() {
+            public float getPrecip_24hour() {
                 return precip_24hour;
             }
 
-            public void setPrecip_24hour(int precip_24hour) {
+            public void setPrecip_24hour(float precip_24hour) {
                 this.precip_24hour = precip_24hour;
             }
 

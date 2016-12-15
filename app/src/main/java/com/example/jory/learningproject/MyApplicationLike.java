@@ -1,18 +1,100 @@
 package com.example.jory.learningproject;
 
+import android.annotation.TargetApi;
 import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.os.Build;
+import android.support.multidex.MultiDex;
 
+import com.example.jory.learningproject.tinker.Log.MyLogImp;
+import com.example.jory.learningproject.tinker.util.SampleApplicationContext;
+import com.example.jory.learningproject.tinker.util.TinkerManager;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.squareup.leakcanary.LeakCanary;
+import com.tencent.tinker.anno.DefaultLifeCycle;
+import com.tencent.tinker.lib.tinker.TinkerInstaller;
+import com.tencent.tinker.loader.app.ApplicationLifeCycle;
+import com.tencent.tinker.loader.app.DefaultApplicationLike;
+import com.tencent.tinker.loader.shareutil.ShareConstants;
 
 /**
  * Created by Administrator on 2016/10/16.
  */
 
-public class MyApplication extends Application {
+
+/**
+ * because you can not use any other class in your application, we need to
+ * move your implement of Application to {@link ApplicationLifeCycle}
+ * As Application, all its direct reference class should be in the main dex.
+ * <p>
+ * We use tinker-android-anno to make sure all your classes can be patched.
+ * <p>
+ * application: if it is start with '.', we will add SampleApplicationLifeCycle's package name
+ * <p>
+ * flags:
+ * TINKER_ENABLE_ALL: support dex, lib and resource
+ * TINKER_DEX_MASK: just support dex
+ * TINKER_NATIVE_LIBRARY_MASK: just support lib
+ * TINKER_RESOURCE_MASK: just support resource
+ * <p>
+ * loaderClass: define the tinker loader class, we can just use the default TinkerLoader
+ * <p>
+ * loadVerifyFlag: whether check files' md5 on the load time, defualt it is false.
+ * <p>
+ * Created by zhangshaowen on 16/3/17.
+ */
+@SuppressWarnings("unused")
+@DefaultLifeCycle(application = "com.example.jory.learningproject.MyApplication",
+        flags = ShareConstants.TINKER_ENABLE_ALL,
+        loadVerifyFlag = false)
+public class MyApplicationLike extends DefaultApplicationLike {
+
+    private Application application;
+    private Context context;
+
+
+    public MyApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) {
+        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);
+    }
+
+    /**
+     * install multiDex before install tinker
+     * so we don't need to put the tinker lib classes in the main dex
+     *
+     * @param base
+     */
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    @Override
+    public void onBaseContextAttached(Context base) {
+        super.onBaseContextAttached(base);
+        //you must install multiDex whatever tinker is installed!
+        MultiDex.install(base);
+
+        application = getApplication();
+        context = getApplication();
+        TinkerManager.setTinkerApplicationLike(this);
+        TinkerManager.initFastCrashProtect();
+        //should set before tinker is installed
+        TinkerManager.setUpgradeRetryEnable(true);
+
+        //optional set logIml, or you can use default debug log
+        TinkerInstaller.setLogIml(new MyLogImp());
+
+        //installTinker after load multiDex
+        //or you can put com.tencent.tinker.** to main dex
+        TinkerManager.installTinker(this);
+    }
+
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks callback) {
+        getApplication().registerActivityLifecycleCallbacks(callback);
+    }
 
     @Override
     public void onCreate() {
@@ -23,18 +105,18 @@ public class MyApplication extends Application {
     }
 
     private void initLeakCancary() {
-        if (LeakCanary.isInAnalyzerProcess(this)) {
+        if (LeakCanary.isInAnalyzerProcess(application)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
             return;
         }
-        LeakCanary.install(this);
+        LeakCanary.install(application);
         // Normal app init code...
     }
 
     private void initOkGo() {
         //必须调用初始化
-        OkGo.init(this);
+        OkGo.init(application);
 
         //以下设置的所有参数是全局参数,同样的参数可以在请求的时候再设置一遍,那么对于该请求来讲,请求中的参数会覆盖全局参数
         //好处是全局参数统一,特定请求可以特别定制参数

@@ -4,6 +4,8 @@
     <string name="title_activity_synchronized_thread">SynchronizedThreadActivity</string>
     <string name="title_activity_weather">WeatherActivity</string>
 
+    <string name="test_resource">I am in the base apk</string>
+    <!--<string name="test_resource">I am in the patch apk</string>-->
 
     <string name="menu_addlocation">"Add location"</string>
     <string name="menu_delete">"Delete location"</string>
@@ -223,4 +225,5 @@
     <string name="title_activity_bottom_edit">BottomEditActivity</string>
     <string name="title_activity_jni">JniActivity</string>
     <string name="title_activity_json_test">JsonTestActivity</string>
+    <string name="title_activity_tinker">TinkerActivity</string>
 </resources>
