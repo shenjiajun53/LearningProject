@@ -226,4 +226,5 @@
     <string name="title_activity_jni">JniActivity</string>
     <string name="title_activity_json_test">JsonTestActivity</string>
     <string name="title_activity_tinker">TinkerActivity</string>
+    <string name="title_activity_nested_behavior">NestedBehaviorActivity</string>
 </resources>
