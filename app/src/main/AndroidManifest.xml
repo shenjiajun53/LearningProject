@@ -51,7 +51,11 @@
         <activity
             android:name=".NestedBehaviorActivity"
             android:label="@string/title_activity_nested_behavior"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FragmentManageActivity"
+            android:label="@string/title_activity_fragment_manage"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

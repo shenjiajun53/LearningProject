@@ -80,7 +80,7 @@ android {
         buildConfigField "String", "PLATFORM", "\"all\""
 
         buildConfigField "String", "APP_KEY", "\"711e62fac6c9babd\""
-        buildConfigField "String", "APP_VERSION",  "\"1.0.0\""
+        buildConfigField "String", "APP_VERSION", "\"1.0.0\""
     }
     //recommend
     dexOptions {
@@ -93,37 +93,44 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:design:24.2.1'
-    testCompile 'junit:junit:4.12'
-    compile 'com.orhanobut:logger:1.15'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.1.3'
-    compile 'com.github.clans:fab:1.6.4'
-    compile 'com.github.rey5137:material:1.2.4'
-    compile 'com.squareup.okhttp3:okhttp:3.3.1'
-    compile 'com.google.code.gson:gson:2.8.0'
     //    compile 'io.reactivex:rxjava:1.1.5'
     //    compile 'io.reactivex:rxandroid:1.2.0'
     //    compile 'com.squareup.retrofit2:retrofit:2.1.0'
     //    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     //    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'com.lzy.net:okgo:2.0.0'
     //可以单独使用，不需要依赖下方的扩展包
-    compile 'com.lzy.net:okrx:0.1.0'
     //RxJava扩展支持，根据需要添加
-    compile 'com.lzy.net:okserver:1.1.0'
     //下载管理和上传管理扩展，根据需要添加
-    compile 'com.alibaba:fastjson:1.2.21'
-    compile 'com.alibaba:fastjson:1.1.55.android'
-
     compile("com.tencent.tinker:tinker-android-lib:${TINKER_VERSION}") { changing = true }
     provided("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
-
     //tinker patch platform server
-    compile("com.tencent.tinker:tinker-server-android:0.3.2")
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.orhanobut:logger:1.15'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.1.3'
+    compile 'com.github.clans:fab:1.6.4'
+    compile 'com.github.rey5137:material:1.2.4'
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+
+    compile 'com.lzy.net:okgo:2.0.0'
+//    compile 'com.lzy.net:okrx:0.1.0'
+//    compile 'com.lzy.net:okserver:1.1.0'
+
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.alibaba:fastjson:1.2.21'
+
+    compile 'com.tencent.tinker:tinker-server-android:0.3.2'
+
+    compile 'io.reactivex.rxjava2:rxjava:2.0.3'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.google.android.gms:play-services:10.0.1'
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
 
 

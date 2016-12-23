@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     private String[] viewNames = {"线程锁", "DataBinding", "bottom edit", "jni demo", "Json Test", "Tinker"
-            , "NestedBehavior   "
+            , "NestedBehavior", "Fragment Manage"
             , "to be continue"};
     MyAdapter myAdapter;
 //    private RecyclerScrollView mScrollView;
@@ -127,6 +127,10 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case 6:
                             intent = new Intent(MainActivity.this, NestedBehaviorActivity.class);
+                            startActivity(intent);
+                            break;
+                        case 7:
+                            intent = new Intent(MainActivity.this, FragmentManageActivity.class);
                             startActivity(intent);
                             break;
                         default:

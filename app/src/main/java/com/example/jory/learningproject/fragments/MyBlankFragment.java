@@ -1,0 +1,121 @@
+package com.example.jory.learningproject.fragments;
+
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.example.jory.learningproject.R;
+import com.google.android.gms.vision.text.Text;
+import com.orhanobut.logger.Logger;
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link MyBlankFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class MyBlankFragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    private RelativeLayout mainView;
+    private TextView textView;
+    private String textStr;
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment MyBlankFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static MyBlankFragment newInstance(String param1, String param2) {
+        MyBlankFragment fragment = new MyBlankFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public MyBlankFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Logger.e("onCreate");
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        Logger.d("onCreateView");
+        // Inflate the layout for this fragment
+        mainView = (RelativeLayout) inflater.inflate(R.layout.fragment_my_blank, container, false);
+        textView = (TextView) mainView.findViewById(R.id.fragment_tv);
+//        textView.setText(textStr);
+        return mainView;
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Logger.d("onViewStateRestored");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Logger.d("onSaveInstanceState");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Logger.d("onPause");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Logger.d("onResume");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Logger.d("onStart");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Logger.d("onStop");
+    }
+
+    public void setTextStr(String textStr) {
+        this.textStr = textStr;
+        if (null != textView) {
+            textView.setText(textStr);
+        }
+    }
+}
