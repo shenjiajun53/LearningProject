@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.jory.learningproject.R;
-import com.google.android.gms.vision.text.Text;
 import com.orhanobut.logger.Logger;
 
 /**

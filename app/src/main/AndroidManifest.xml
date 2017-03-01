@@ -45,10 +45,6 @@
             android:label="@string/title_activity_json_test"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TinkerActivity"
-            android:label="@string/title_activity_tinker"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".NestedBehaviorActivity"
             android:label="@string/title_activity_nested_behavior"
             android:theme="@style/AppTheme.NoActionBar" />

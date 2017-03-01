@@ -23,7 +23,7 @@ import com.example.jory.learningproject.views.RecyclerScrollView;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    private String[] viewNames = {"线程锁", "DataBinding", "bottom edit", "jni demo", "Json Test", "Tinker"
+    private String[] viewNames = {"线程锁", "DataBinding", "bottom edit", "jni demo", "Json Test"
             , "NestedBehavior", "Fragment Manage"
             , "to be continue"};
     MyAdapter myAdapter;
@@ -122,14 +122,10 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             break;
                         case 5:
-                            intent = new Intent(MainActivity.this, TinkerActivity.class);
-                            startActivity(intent);
-                            break;
-                        case 6:
                             intent = new Intent(MainActivity.this, NestedBehaviorActivity.class);
                             startActivity(intent);
                             break;
-                        case 7:
+                        case 6:
                             intent = new Intent(MainActivity.this, FragmentManageActivity.class);
                             startActivity(intent);
                             break;
