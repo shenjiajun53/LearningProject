@@ -5,14 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="cityBean"
-            type="com.example.jory.learningproject.model.CityListBean.AddressesBean" />
-
-        <variable
-            name="currentBean"
-            type="com.example.jory.learningproject.model.CurrentWeatherBean" />
+            name="viewModel"
+            type="com.example.jory.learningproject.model.WeatherViewModel" />
     </data>
 
     <ScrollView
@@ -34,8 +29,7 @@
 
             <include
                 layout="@layout/weather_info_layout"
-                bind:cityBean="@{cityBean}"
-                bind:currentBean="@{currentBean}" />
+                bind:viewModel="@{viewModel}" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/weather_24forecast_card"

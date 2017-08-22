@@ -229,6 +229,8 @@
     <string name="title_activity_nested_behavior">NestedBehaviorActivity</string>
     <string name="title_activity_fragment_manage">FragmentManageActivity</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_hello_kotlin">HelloKotlinActivity</string>
+    <string name="title_activity_weather_kotlin">WeatherKotlinActivity</string>
 </resources>

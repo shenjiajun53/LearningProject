@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by shenjj on 2016/11/11.
  */
 
-public class CurrentWeatherBean extends BaseObservable {
+public class CurrentWeatherBean {
 
     /**
      * metadata : {"language":"zh-CN","transaction_id":"1478852306614:-994620159","version":"1","latitude":31.56,"longitude":31.56,"units":"m","expire_time_gmt":1478852906,"status_code":200}
@@ -24,50 +24,29 @@ public class CurrentWeatherBean extends BaseObservable {
     private MetadataBean metadata;
     private ObservationBean observation;
 
-    @Bindable
     public String getTempString() {
         return tempString;
     }
 
     public void setTempString(String tempString) {
         this.tempString = tempString;
-//        notifyPropertyChanged(BR.tempString);
     }
 
-    @Bindable
     public MetadataBean getMetadata() {
         return metadata;
     }
 
     public void setMetadata(MetadataBean metadata) {
         this.metadata = metadata;
-//        notifyPropertyChanged(BR.metadata);
     }
 
-    @Bindable
     public ObservationBean getObservation() {
         return observation;
     }
 
     public void setObservation(ObservationBean observation) {
         this.observation = observation;
-//        notifyPropertyChanged(BR.observation);
     }
-
-    @BindingAdapter("blabla")
-    public static void setBlabla(TextView view, String originStr) {
-        view.setText(originStr + "blabla");
-    }
-
-//    @BindingAdapter({"bind:blabla", "bind:bibi"})
-//    public static void setTail(TextView view, String blabla, String bibi) {
-//        view.setText(blabla + bibi);
-//    }
-
-//    @BindingAdapter("android:text")
-//    public static void setText(TextView view, String content) {
-//        view.setText(content+"balabala");
-//    }
 
     public static class MetadataBean extends BaseObservable {
         /**
@@ -90,7 +69,7 @@ public class CurrentWeatherBean extends BaseObservable {
         private int expire_time_gmt;
         private int status_code;
 
-        @Bindable
+
         public String getLanguage() {
             return language;
         }
@@ -99,7 +78,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.language = language;
         }
 
-        @Bindable
+
         public String getTransaction_id() {
             return transaction_id;
         }
@@ -108,7 +87,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.transaction_id = transaction_id;
         }
 
-        @Bindable
+
         public String getVersion() {
             return version;
         }
@@ -117,7 +96,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.version = version;
         }
 
-        @Bindable
+
         public double getLatitude() {
             return latitude;
         }
@@ -126,7 +105,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.latitude = latitude;
         }
 
-        @Bindable
+
         public double getLongitude() {
             return longitude;
         }
@@ -135,7 +114,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.longitude = longitude;
         }
 
-        @Bindable
+
         public String getUnits() {
             return units;
         }
@@ -144,7 +123,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.units = units;
         }
 
-        @Bindable
+
         public int getExpire_time_gmt() {
             return expire_time_gmt;
         }
@@ -153,7 +132,6 @@ public class CurrentWeatherBean extends BaseObservable {
             this.expire_time_gmt = expire_time_gmt;
         }
 
-        @Bindable
         public int getStatus_code() {
             return status_code;
         }
@@ -223,7 +201,7 @@ public class CurrentWeatherBean extends BaseObservable {
         private String vocal_key;
         private MetricBean metric;
 
-        @Bindable
+
         public String getClassX() {
             return classX;
         }
@@ -232,7 +210,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.classX = classX;
         }
 
-        @Bindable
+
         public int getExpire_time_gmt() {
             return expire_time_gmt;
         }
@@ -241,7 +219,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.expire_time_gmt = expire_time_gmt;
         }
 
-        @Bindable
+
         public int getObs_time() {
             return obs_time;
         }
@@ -250,7 +228,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.obs_time = obs_time;
         }
 
-        @Bindable
+
         public String getObs_time_local() {
             return obs_time_local;
         }
@@ -259,7 +237,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.obs_time_local = obs_time_local;
         }
 
-        @Bindable
+
         public int getWdir() {
             return wdir;
         }
@@ -268,7 +246,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.wdir = wdir;
         }
 
-        @Bindable
+
         public int getIcon_code() {
             return icon_code;
         }
@@ -277,7 +255,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.icon_code = icon_code;
         }
 
-        @Bindable
+
         public int getIcon_extd() {
             return icon_extd;
         }
@@ -286,7 +264,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.icon_extd = icon_extd;
         }
 
-        @Bindable
+
         public String getSunrise() {
             return sunrise;
         }
@@ -295,7 +273,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.sunrise = sunrise;
         }
 
-        @Bindable
+
         public String getSunset() {
             return sunset;
         }
@@ -304,7 +282,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.sunset = sunset;
         }
 
-        @Bindable
+
         public String getDay_ind() {
             return day_ind;
         }
@@ -313,7 +291,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.day_ind = day_ind;
         }
 
-        @Bindable
+
         public int getUv_index() {
             return uv_index;
         }
@@ -322,7 +300,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.uv_index = uv_index;
         }
 
-        @Bindable
+
         public int getUv_warning() {
             return uv_warning;
         }
@@ -331,7 +309,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.uv_warning = uv_warning;
         }
 
-        @Bindable
+
         public String getWxman() {
             return wxman;
         }
@@ -340,7 +318,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.wxman = wxman;
         }
 
-        @Bindable
+
         public Object getObs_qualifier_code() {
             return obs_qualifier_code;
         }
@@ -349,7 +327,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.obs_qualifier_code = obs_qualifier_code;
         }
 
-        @Bindable
+
         public int getPtend_code() {
             return ptend_code;
         }
@@ -358,7 +336,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.ptend_code = ptend_code;
         }
 
-        @Bindable
+
         public String getDow() {
             return dow;
         }
@@ -367,7 +345,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.dow = dow;
         }
 
-        @Bindable
+
         public String getWdir_cardinal() {
             return wdir_cardinal;
         }
@@ -376,7 +354,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.wdir_cardinal = wdir_cardinal;
         }
 
-        @Bindable
+
         public String getUv_desc() {
             return uv_desc;
         }
@@ -385,7 +363,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.uv_desc = uv_desc;
         }
 
-        @Bindable
+
         public Object getPhrase_12char() {
             return phrase_12char;
         }
@@ -394,7 +372,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.phrase_12char = phrase_12char;
         }
 
-        @Bindable
+
         public Object getPhrase_22char() {
             return phrase_22char;
         }
@@ -403,7 +381,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.phrase_22char = phrase_22char;
         }
 
-        @Bindable
+
         public String getPhrase_32char() {
             return phrase_32char;
         }
@@ -412,7 +390,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.phrase_32char = phrase_32char;
         }
 
-        @Bindable
+
         public String getPtend_desc() {
             return ptend_desc;
         }
@@ -421,7 +399,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.ptend_desc = ptend_desc;
         }
 
-        @Bindable
+
         public String getSky_cover() {
             return sky_cover;
         }
@@ -430,7 +408,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.sky_cover = sky_cover;
         }
 
-        @Bindable
+
         public String getClds() {
             return clds;
         }
@@ -439,7 +417,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.clds = clds;
         }
 
-        @Bindable
+
         public Object getObs_qualifier_severity() {
             return obs_qualifier_severity;
         }
@@ -448,7 +426,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.obs_qualifier_severity = obs_qualifier_severity;
         }
 
-        @Bindable
+
         public String getVocal_key() {
             return vocal_key;
         }
@@ -457,7 +435,7 @@ public class CurrentWeatherBean extends BaseObservable {
             this.vocal_key = vocal_key;
         }
 
-        @Bindable
+
         public MetricBean getMetric() {
             return metric;
         }
@@ -544,7 +522,7 @@ public class CurrentWeatherBean extends BaseObservable {
             private Object obs_qualifier_50char;
             private Object obs_qualifier_32char;
 
-            @Bindable
+
             public int getWspd() {
                 return wspd;
             }
@@ -553,7 +531,7 @@ public class CurrentWeatherBean extends BaseObservable {
                 this.wspd = wspd;
             }
 
-            @Bindable
+
             public Object getGust() {
                 return gust;
             }
@@ -562,7 +540,7 @@ public class CurrentWeatherBean extends BaseObservable {
                 this.gust = gust;
             }
 
-            @Bindable
+
             public double getVis() {
                 return vis;
             }
@@ -571,7 +549,7 @@ public class CurrentWeatherBean extends BaseObservable {
                 this.vis = vis;
             }
 
-            @Bindable
+
             public double getMslp() {
                 return mslp;
             }
@@ -580,7 +558,7 @@ public class CurrentWeatherBean extends BaseObservable {
                 this.mslp = mslp;
             }
 
-            @Bindable
+
             public double getAltimeter() {
                 return altimeter;
             }
@@ -589,7 +567,7 @@ public class CurrentWeatherBean extends BaseObservable {
                 this.altimeter = altimeter;
             }
 
-            @Bindable
+
             public int getTemp() {
                 return temp;
             }
@@ -599,12 +577,12 @@ public class CurrentWeatherBean extends BaseObservable {
 //                notifyPropertyChanged(BR.temp);
             }
 
-            @Bindable
+
             public int getDewpt() {
                 return dewpt;
             }
 
-            @Bindable
+
             public void setDewpt(int dewpt) {
                 this.dewpt = dewpt;
             }

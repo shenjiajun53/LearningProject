@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="currentBean"
-            type="com.example.jory.learningproject.model.CurrentWeatherBean" />
+            name="viewModel"
+            type="com.example.jory.learningproject.model.WeatherViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-light"
-                    android:text='@{currentBean.observation.metric.temp_max_24hour+""}'
+                    android:text='@{viewModel.currentWeatherBean.observation.metric.temp_max_24hour+""}'
                     android:textColor="#000000"
                     android:textSize="@dimen/weather_info_value_size" />
 
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-light"
-                    android:text='@{currentBean.observation.metric.temp_min_24hour+""}'
+                    android:text='@{viewModel.currentWeatherBean.observation.metric.temp_min_24hour+""}'
                     android:textColor="#000000"
                     android:textSize="@dimen/weather_info_value_size" />
 
@@ -138,7 +138,7 @@
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-light"
                     android:textColor="#000000"
-                    android:text='@{currentBean.observation.metric.precip_24hour+""}'
+                    android:text='@{viewModel.currentWeatherBean.observation.metric.precip_24hour+""}'
                     android:textSize="@dimen/weather_info_value_size" />
 
                 <TextView
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="sans-serif-light"
-                    android:text='@{currentBean.observation.metric.rh+""}'
+                    android:text='@{viewModel.currentWeatherBean.observation.metric.rh+""}'
                     android:textColor="#000000"
                     android:textSize="@dimen/weather_info_value_size" />
 
