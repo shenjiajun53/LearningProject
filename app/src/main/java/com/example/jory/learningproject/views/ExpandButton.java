@@ -92,7 +92,7 @@ public class ExpandButton extends View {
             this.setPressed(true);
             Log.i(TAG, "ontouch degree=" + mDegree + "isExpand" + isExpanded);
             if (mListener != null) {
-                mListener.onClick();
+                mListener.onClick(isExpanded);
             }
             startAnimation();
             isExpanded = !isExpanded;
@@ -141,7 +141,7 @@ public class ExpandButton extends View {
         mListener = expandButtonListener;
     }
 
-    interface ExpandButtonListener {
-        void onClick();
+    public interface ExpandButtonListener {
+        void onClick(boolean isExpanded);
     }
 }

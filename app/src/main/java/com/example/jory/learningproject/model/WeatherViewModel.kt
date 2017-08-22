@@ -3,14 +3,19 @@ package com.example.jory.learningproject.model
 import android.databinding.BaseObservable
 import android.databinding.Bindable
 import android.util.Log
+import android.view.View
 import com.example.jory.learningproject.BR
+import com.example.jory.learningproject.R
 import com.example.jory.learningproject.WeatherActivity
 import com.example.jory.learningproject.databinding.ContentWeatherBinding
+import com.example.jory.learningproject.utils.LogUtil
 import com.example.jory.learningproject.utils.TWCUrlBuilder
 import com.google.gson.Gson
 import com.lzy.okgo.OkGo
 import com.lzy.okgo.callback.StringCallback
 import com.orhanobut.logger.Logger
+import kotlinx.android.synthetic.main.content_weather.view.*
+import kotlinx.android.synthetic.main.weather_info_more_detail_layout.view.*
 import okhttp3.Call
 import okhttp3.Response
 
@@ -36,6 +41,16 @@ class WeatherViewModel(weatherActivity: WeatherActivity) : BaseObservable() {
             field = value
             notifyPropertyChanged(BR.cityBean)
         }
+
+    fun onClick(view: View) {
+//        when (view.id) {
+//            R.id.expand_button -> {
+//                Logger.d("123", "onclick")
+//                weatherBinding.contentWeather.visibility = View.GONE
+//            }
+//            else -> return
+//        }
+    }
 
     fun getCity() {
         val url = TWCUrlBuilder.findCityByName("无锡", lang, false)
